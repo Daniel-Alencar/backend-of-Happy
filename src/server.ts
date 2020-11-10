@@ -1,6 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 // framework
+
 import path from 'path';
 import cors from 'cors';
 
@@ -10,36 +11,40 @@ import errorHandler from './errors/handler';
 
 
 const app = express();
+
+// algumas configurações
 app.use(cors());
 app.use(express.json());
+
 app.use(routes);
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 app.use(errorHandler);
-// caminho para a pasta uploads 
-// __dirname se refere ao diretório atual
+
+
 
 // Fluxo do nodeJS
 /**
  * Requisição e resposta
- */
+**/
 
- // Rota
- // Recurso = usuário
- // Métodos HTTP = get, post, put e delete
- // Parâmetros = Query Params, Route Params e Body
+// Rota
+// Recurso = usuário
+// Métodos HTTP = get, post, put e delete
+// Parâmetros = Query Params, Route Params e Body
+
+// GET => Buscar uma informação
+// POST => Criando uma informação
+// PUT => Editando uma informação
+// DELETE => Deletando uma informação
+
+// Query params => http://localhost:3333/users?search=diego
+// Route params => http://localhost:3333/users/1 (identificar do usuário)
+// Body params => http://localhost:3333/users (identificar um recurso)
 
 
- // GET => Buscar uma informação
- // POST => Criando uma informação
- // PUT => Editando uma informação
- // DELETE => Deletando uma informação
-
- // Query params => http://localhost:3333/users?search=diego
- // Route params => http://localhost:3333/users/1 (identificar do usuário)
- // Body => http://localhost:3333/users (identificar um recurso)
-
-
-app.listen(5000);
+app.listen(5000, () => {
+    console.log('Servidor na porta 5000');
+});
 // localhost:5000
 
 

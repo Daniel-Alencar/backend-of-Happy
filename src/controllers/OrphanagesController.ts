@@ -4,6 +4,8 @@ import Orphanage from '../models/Orphanage';
 import OrphanageView from '../views/orphanages_view';
 import * as Yup from 'yup';
 
+
+// exportando objeto com 3 métodos
 export default {
     async show(request: Request, response: Response) {
         const { id } = request.params;
@@ -78,7 +80,6 @@ export default {
         await schema.validate(data, {
             abortEarly: false
         });
-
         const orphanage = orphanagesRepository.create(data);
     
         // salvar no banco de dados
