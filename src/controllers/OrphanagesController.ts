@@ -49,7 +49,7 @@ export default {
         });
 
         const orphanage = orphanagesRepository.create({
-            name,
+            nome,
             latitude,
             longitude,
             about,
