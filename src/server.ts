@@ -6,18 +6,21 @@ import path from 'path';
 import cors from 'cors';
 
 import './database/connection';
-import routes from './routes';
-import errorHandler from './errors/handler';
+// faz a nossa conexão com o banco de dados
 
+import routes from './routes';
+import errorHandler from './errors/handler'; 
 
 const app = express();
-
-// algumas configurações
+// configura o node para que outras aplicações possam fazer requisições de outros domínios (sem precisar estar usando a mesma porta (exemplo: 5000))
 app.use(cors());
+// habilitando o express para entender json na requisição body
 app.use(express.json());
-
+// habilita o express a ler o nosso arquivo de rotas (routes)
 app.use(routes);
+// configura o express a acessar as imagens que nós fizemos upload
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+// habilita o express a trabalhar com erros
 app.use(errorHandler);
 
 
@@ -27,7 +30,7 @@ app.use(errorHandler);
  * Requisição e resposta
 **/
 
-// Rota
+// Rota = conjunto de tudo
 // Recurso = usuário
 // Métodos HTTP = get, post, put e delete
 // Parâmetros = Query Params, Route Params e Body
@@ -38,8 +41,8 @@ app.use(errorHandler);
 // DELETE => Deletando uma informação
 
 // Query params => http://localhost:3333/users?search=diego
-// Route params => http://localhost:3333/users/1 (identificar do usuário)
-// Body params => http://localhost:3333/users (identificar um recurso)
+// Route params => http://localhost:3333/users/1 (identificar um recurso (um usuário))
+// Body => http://localhost:3333/users (identificar um recurso)
 
 
 app.listen(5000, () => {
@@ -59,5 +62,5 @@ app.listen(5000, () => {
  * knex('users').select('*').where("name", "Daniel");
  * 
  * ORM => Classes simbolizam tabelas do banco de dados
- * "Cada Requisição nos dará um objeto derivado da classe"
+ * "Cada Requisição nos dará objetos derivados da classe"
  */

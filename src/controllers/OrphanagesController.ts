@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
+
+// tudo que vem do banco de dados passa por o nosso getRepository
 import { getRepository } from 'typeorm';
 import Orphanage from '../models/Orphanage';
+
 import OrphanageView from '../views/orphanages_view';
 import * as Yup from 'yup';
 
@@ -80,6 +83,7 @@ export default {
         await schema.validate(data, {
             abortEarly: false
         });
+        // deixar os dados pré-criados (só falta adicionar no banco de dados)
         const orphanage = orphanagesRepository.create(data);
     
         // salvar no banco de dados

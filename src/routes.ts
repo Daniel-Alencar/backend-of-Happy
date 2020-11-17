@@ -8,7 +8,7 @@ const routes = Router();
 routes.get("/orphanages", OrphanagesController.index);
 routes.get("/orphanages/:id", OrphanagesController.show);
 
-
+// passando congigurações do modo como vão ser guardadas as imagens para upload
 const upload = multer(uploadConfig);
 routes.post("/orphanages", upload.array('images'), OrphanagesController.create);
 

@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
 import Image from './Image';
 
-// associar esta classse com a nossa tabela no DB
+// associar esta classe (Orphanage) com a nossa tabela no DB (orphanages)
 @Entity('orphanages')
 export default class Orphanage {
 
