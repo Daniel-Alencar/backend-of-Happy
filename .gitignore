@@ -1,6 +1,6 @@
 # pastas
 **/node_modules
-uploads/*
+uploads/
 
 # extensões
 .gitignore
