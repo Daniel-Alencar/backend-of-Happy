@@ -6,4 +6,4 @@ uploads/
 .gitignore
 
 # arquivos
-database.sqlite
+database/database.sqlite
