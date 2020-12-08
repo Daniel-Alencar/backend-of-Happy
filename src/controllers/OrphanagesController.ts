@@ -28,16 +28,6 @@ export default {
         return response.json(OrphanageView.renderMany(orphanages));
     },
     async create(request: Request, response: Response) {
-
-        console.log(request.files);
-
-        console.log(request.query); 
-        // Amostrará todas as querys feitas naquela rota
-        console.log(request.params);
-        // Amostrará todas as params feitas naquela rota
-        console.log(request.body);
-        // Amostrará todas as body feitas naquela rota
-    
         const {
             name,
             latitude,
