@@ -1,9 +1,5 @@
 # pastas
 **/node_modules
-uploads/
 
 # extensões
 .gitignore
-
-# arquivos
-database/
